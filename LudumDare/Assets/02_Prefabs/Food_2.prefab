@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8555346821571773952, guid: 0cfc3b51af04074449a9e68e47db0cbe, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2e08e30b43ea5b7418092166688bbb5d, type: 2}
     - target: {fileID: 8555346821571773954, guid: 0cfc3b51af04074449a9e68e47db0cbe, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -53,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8555346821571774077, guid: 0cfc3b51af04074449a9e68e47db0cbe, type: 3}
       propertyPath: m_Name
-      value: Food 1
+      value: Food_2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cfc3b51af04074449a9e68e47db0cbe, type: 3}
