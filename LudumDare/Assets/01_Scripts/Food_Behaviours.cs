@@ -8,6 +8,7 @@ public class Food_Behaviours : MonoBehaviour
     [Header("Param")]
     [Min(1)]
     public int m_Level = 1;
+    public FoodParam_SO param;
 
     [Min (0.2f)]
     public float m_DetectionRadius = 1f;
