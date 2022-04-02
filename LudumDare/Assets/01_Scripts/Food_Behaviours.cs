@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System;
 
 public class Food_Behaviours : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Food_Behaviours : MonoBehaviour
     [Min(1)]
     public int m_Level = 1;
     public FoodParam_SO param;
+    public Rigidbody m_rb;
 
     [Min (0.2f)]
     public float m_DetectionRadius = 1f;
@@ -56,6 +58,11 @@ public class Food_Behaviours : MonoBehaviour
                 return;
             }
         }
+    }
+
+    internal void Shoot(Vector3 pos, float speed)
+    {
+        m_rb.AddForce(pos * speed, ForceMode.Impulse);
     }
 
     public void MoveToTheGourmet(Vector3 pos)

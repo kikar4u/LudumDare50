@@ -5,6 +5,9 @@ using DG.Tweening;
 
 public class ShootLogics : MonoBehaviour
 {
+    [Min(1f)]
+    public float m_ShootForce = 10f;
+
     [Min(0.5f)]
     public float m_ShootRadius = 0.5f;
     public LayerMask m_FoodLayer;
@@ -38,8 +41,8 @@ public class ShootLogics : MonoBehaviour
     public void Shoot(Food_Behaviours food)
     {
         print(food.name + " name");
-        food.MoveToTheGourmet(GourmetBehaviours.instance.transform.position);
-
+        //food.MoveToTheGourmet(GourmetBehaviours.instance.transform.position);
+        food.Shoot(transform.forward,m_ShootForce);
     }
 
     #region Gizmo
