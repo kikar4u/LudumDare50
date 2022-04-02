@@ -8,7 +8,7 @@ public class Food_Behaviours : MonoBehaviour
 {
     [Header("Param")]
     [Min(1)]
-    public int m_Level = 1;
+    public FoodState m_Level = FoodState.RAW;
     public FoodParam_SO param;
     public Rigidbody m_rb;
 
@@ -62,7 +62,9 @@ public class Food_Behaviours : MonoBehaviour
 
     internal void Shoot(Vector3 pos, float speed)
     {
-        m_rb.AddForce(pos * speed, ForceMode.Impulse);
+        Vector3 directionPos = VectorsMethods.GetDirectionFromAtoB(transform.position, pos).normalized;
+
+        m_rb.AddForce(directionPos * speed, ForceMode.Impulse);
     }
 
     public void MoveToTheGourmet(Vector3 pos)

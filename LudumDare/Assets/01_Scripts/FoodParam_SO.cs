@@ -21,4 +21,15 @@ public class FoodParam {
 public class FoodParam_SO : ScriptableObject
 {
     public List<FoodParam> param;
+
+    public float GetPoint(FoodState state)
+    {
+        foreach (var item in param)
+        {
+            if (item.m_FoodLevel == state)
+                return item.m_point;
+        }
+
+        return 0;
+    }
 }

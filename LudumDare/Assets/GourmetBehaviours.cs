@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,10 @@ using UnityEngine;
 public class GourmetBehaviours : MonoBehaviour
 {
     public static GourmetBehaviours instance;
+
+    public float score;
+
+    public TMPro.TMP_Text scoreText;
 
     void Awake()
     {
@@ -14,9 +19,20 @@ public class GourmetBehaviours : MonoBehaviour
             instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter(Collision collision)
     {
-        
+        Food_Behaviours food;
+
+        if (!collision.gameObject.TryGetComponent<Food_Behaviours>(out food))
+            return;
+
+        score += food.param.GetPoint(food.m_Level);
+
+        UpdateScoreText();
+    }
+
+    private void UpdateScoreText()
+    {
+        scoreText.text = score.ToString();
     }
 }
