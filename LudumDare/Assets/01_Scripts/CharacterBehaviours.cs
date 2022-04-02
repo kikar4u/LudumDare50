@@ -3,8 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterBehaviours : MonoBehaviour
+public class CharacterBehaviours : MonoBehaviour,IDamageable<float>,IKillable
 {
+    [Header("Param")]
+    public float m_Life;
+
     [Header("Timer")]
     [Min(0.2f)]
     public float m_dontMoveTime;
@@ -42,6 +45,25 @@ public class CharacterBehaviours : MonoBehaviour
     private void GetBurn()
     {
         print("j'ai chaud");
+        TakeDamage(1);
         feedback.PlayBurnFeedback();
+    }
+
+    public bool IsDead()
+    {
+        return m_Life <= 0;
+    }
+
+    public void Dead()
+    {
+        print("dead");
+    }
+
+    public void TakeDamage(float damage)
+    {
+        m_Life -= damage;
+
+        if (IsDead())
+            Dead();
     }
 }

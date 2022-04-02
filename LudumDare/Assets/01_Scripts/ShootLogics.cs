@@ -42,7 +42,7 @@ public class ShootLogics : MonoBehaviour
     {
         print(food.name + " name");
         //food.MoveToTheGourmet(GourmetBehaviours.instance.transform.position);
-        food.Shoot(transform.forward,m_ShootForce);
+        food.Shoot(transform.parent.position,m_ShootForce);
     }
 
     #region Gizmo
