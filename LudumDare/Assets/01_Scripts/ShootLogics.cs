@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class ShootLogics : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class ShootLogics : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.A))
         {
             DetectFood();
         }
@@ -36,7 +37,9 @@ public class ShootLogics : MonoBehaviour
 
     public void Shoot(Food_Behaviours food)
     {
-        print(food.name + "name");
+        print(food.name + " name");
+        food.MoveToTheGourmet(GourmetBehaviours.instance.transform.position);
+
     }
 
     #region Gizmo

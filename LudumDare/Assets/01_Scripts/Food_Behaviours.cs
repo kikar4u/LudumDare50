@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Food_Behaviours : MonoBehaviour
 {
+    [Header("Param")]
+    [Min(1)]
+    public int m_Level = 1;
+
     [Min (0.2f)]
     public float m_DetectionRadius = 1f;
     public LayerMask m_PlaqueLayer;
-
 
     [Header("Timer")]
     [Min(0.2f)]
@@ -16,6 +20,9 @@ public class Food_Behaviours : MonoBehaviour
     [Min(0.2f)]
     public float m_MediumCookTime;
     private Timer t_MediumCookTimer;
+
+    [Header("Text")]
+    public TMPro.TMP_Text _LevelText;
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +57,11 @@ public class Food_Behaviours : MonoBehaviour
         }
     }
 
+    public void MoveToTheGourmet(Vector3 pos)
+    {
+        transform.DOMove(pos, 2);
+    }
+
     public void Cook()
     {
         print("cook");
@@ -59,6 +71,8 @@ public class Food_Behaviours : MonoBehaviour
     public void ChangeCookstyle()
     {
         print("+1");
+        m_Level++;
+        _LevelText.text = m_Level.ToString();
     }
 
     #region Gizmo
