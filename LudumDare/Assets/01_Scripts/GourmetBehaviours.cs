@@ -7,9 +7,18 @@ public class GourmetBehaviours : MonoBehaviour
 {
     public static GourmetBehaviours instance;
 
+    [Header("Param")]
+    public float m_StarvingPoint;
+    public float m_ReduceStarvingPoint;
+
     public float score;
 
     public TMPro.TMP_Text scoreText;
+
+    [Header("Timer")]
+    [Min(0.2f)]
+    public float m_StravingTime;
+    private Timer t_StravingTimer;
 
     void Awake()
     {
@@ -17,6 +26,23 @@ public class GourmetBehaviours : MonoBehaviour
             Debug.LogWarning("Multiple instance of same Singleton : GourmetBehaviours");
         else
             instance = this;
+    }
+
+    private void Start()
+    {
+        t_StravingTimer = new Timer(m_StravingTime, Starving);
+
+        t_StravingTimer.ResetPlay();
+    }
+
+    private void Starving()
+    {
+        m_StarvingPoint -= m_ReduceStarvingPoint;
+
+        if (m_StarvingPoint <= 0)
+            print("Game Over");
+
+        t_StravingTimer.ResetPlay();
     }
 
     private void OnCollisionEnter(Collision collision)

@@ -593,6 +593,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5898302799112170906, guid: 678b1ad53533fd5488be4b8b17d4f1b4, type: 3}
+      propertyPath: score
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5898302799112170906, guid: 678b1ad53533fd5488be4b8b17d4f1b4, type: 3}
+      propertyPath: m_StravingTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5898302799112170906, guid: 678b1ad53533fd5488be4b8b17d4f1b4, type: 3}
+      propertyPath: m_StarvingPoint
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5898302799112170906, guid: 678b1ad53533fd5488be4b8b17d4f1b4, type: 3}
+      propertyPath: m_ReduceStarvingPoint
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 5898302799112170909, guid: 678b1ad53533fd5488be4b8b17d4f1b4, type: 3}
       propertyPath: m_Name
       value: Gourmet
