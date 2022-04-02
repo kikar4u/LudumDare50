@@ -342,6 +342,7 @@ public class Character : MonoBehaviour
         this.OrientRotationToMoveVector(this.MoveVector);
 
         Vector3 motion = this.MoveVector * this.currentHorizontalSpeed + Vector3.up * this.currentVerticalSpeed;
+
         this.controller.Move(motion * Time.deltaTime);
     }
 
