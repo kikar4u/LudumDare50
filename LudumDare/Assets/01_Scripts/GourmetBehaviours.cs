@@ -37,11 +37,14 @@ public class GourmetBehaviours : MonoBehaviour
         t_IndegestionTimer = new Timer(m_IndigestionTime, StopIndegestion);
 
         t_StravingTimer.ResetPlay();
+
+        UpdateStarvingText();
     }
 
     private void Starving()
     {
         m_StarvingPoint -= m_ReduceStarvingPoint;
+        UpdateStarvingText();
 
         if (m_StarvingPoint <= 0)
             print("Game Over");
