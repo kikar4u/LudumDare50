@@ -58,6 +58,7 @@ public class GourmetBehaviours : MonoBehaviour
             m_StarvingPoint = m_MaxStarvingPoint;
             m_IsIndigestion = true;
             t_IndegestionTimer.ResetPlay();
+            GetComponent<Renderer>().material.color = Color.green;
         }
 
         t_StravingTimer.ResetPlay();
@@ -71,6 +72,7 @@ public class GourmetBehaviours : MonoBehaviour
     public void StopIndegestion()
     {
         m_IsIndigestion = false;
+        GetComponent<Renderer>().material.color = Color.blue;
     }
 
     private void OnCollisionEnter(Collision collision)

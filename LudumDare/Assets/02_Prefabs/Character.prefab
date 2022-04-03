@@ -156,11 +156,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7db4119532a13914c82ad16d11a796bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ShootInput: 98
+  m_CanShoot: 1
   m_ShootForce: 10
   m_ShootRadius: 1.5
   m_FoodLayer:
     serializedVersion: 2
     m_Bits: 256
+  m_ReloadShootTime: 0.5
 --- !u!1 &8498194440826475653
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,6 +346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79607d4bb8bae994085b19e83c220a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Life: 0
   m_dontMoveTime: 1
   controller: {fileID: 8498194440826475651}
   feedback: {fileID: 2098667594}

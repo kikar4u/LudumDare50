@@ -109,8 +109,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6d19fffe32d4ab41b9caf24ef330c84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
+  m_MaxStarvingPoint: 75
+  m_StarvingPoint: 50
+  m_ReduceStarvingPoint: 15
+  m_IsIndigestion: 0
   scoreText: {fileID: 5898302799591542492}
+  m_StravingTime: 3
+  m_IndigestionTime: 5
 --- !u!1 &5898302799591542494
 GameObject:
   m_ObjectHideFlags: 0
