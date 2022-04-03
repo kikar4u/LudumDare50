@@ -14,7 +14,7 @@ public class GourmetBehaviours : MonoBehaviour
 
     public bool m_IsIndigestion = false;
 
-    public TMPro.TMP_Text scoreText;
+    public TMPro.TMP_Text StarvingText;
 
     [Header("Timer")]
     [Min(0.2f)]
@@ -53,8 +53,11 @@ public class GourmetBehaviours : MonoBehaviour
     {
         m_StarvingPoint += point;
 
+        GameManager.instance.UpdateStarvingUI(m_StarvingPoint);
+
         if (IsIndigestion())
         {
+            GameManager.instance.StartIndegestionUI(m_IndigestionTime);
             m_StarvingPoint = m_MaxStarvingPoint;
             m_IsIndigestion = true;
             t_IndegestionTimer.ResetPlay();
@@ -84,13 +87,13 @@ public class GourmetBehaviours : MonoBehaviour
 
         IncreaseStarvingPoint(food.param.GetPoint(food.m_Level));
 
-        UpdateScoreText();
+        UpdateStarvingText();
     }
 
 
 
-    private void UpdateScoreText()
+    private void UpdateStarvingText()
     {
-        scoreText.text = m_StarvingPoint.ToString();
+        StarvingText.text = m_StarvingPoint.ToString();
     }
 }

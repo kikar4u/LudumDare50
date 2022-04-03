@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,5 +29,15 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void UpdateStarvingUI(float starvingPoint)
+    {
+        CanvasManager.instance.UpdateStarvingSlider(starvingPoint);
+    }
+
+    public void StartIndegestionUI(float indigestionTime)
+    {
+        CanvasManager.instance.UpdateIndegestionSlider(indigestionTime);
     }
 }

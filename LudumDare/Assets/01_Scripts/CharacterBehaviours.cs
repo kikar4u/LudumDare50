@@ -44,7 +44,7 @@ public class CharacterBehaviours : MonoBehaviour,IDamageable<float>,IKillable
 
     private void GetBurn()
     {
-        print("j'ai chaud");
+        //print("j'ai chaud");
         TakeDamage(1);
         feedback.PlayBurnFeedback();
     }
@@ -56,7 +56,7 @@ public class CharacterBehaviours : MonoBehaviour,IDamageable<float>,IKillable
 
     public void Dead()
     {
-        print("dead");
+        //print("dead");
     }
 
     public void TakeDamage(float damage)
