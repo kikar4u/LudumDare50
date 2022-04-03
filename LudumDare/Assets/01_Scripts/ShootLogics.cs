@@ -5,6 +5,12 @@ using DG.Tweening;
 
 public class ShootLogics : MonoBehaviour
 {
+
+    public KeyCode m_ShootInput;
+    public bool m_CanShoot = true;
+
+    [Space]
+
     [Min(1f)]
     public float m_ShootForce = 10f;
 
@@ -12,10 +18,22 @@ public class ShootLogics : MonoBehaviour
     public float m_ShootRadius = 0.5f;
     public LayerMask m_FoodLayer;
 
+    [Header("Timer")]
+    [Min(0.2f)]
+    public float m_ReloadShootTime;
+    private Timer t_CanShootTimer;
+
+    private void Start()
+    {
+        t_CanShootTimer = new Timer(m_ReloadShootTime, EnableShoot);
+    }
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(m_ShootInput) && m_CanShoot)
         {
+            if(!t_CanShootTimer.IsStarted())
+                DisableShoot();
             DetectFood();
         }
     }
@@ -27,7 +45,15 @@ public class ShootLogics : MonoBehaviour
         Food_Behaviours food;
 
         if (hit.Length <= 0)
+        {
+            if (!t_CanShootTimer.IsStarted())
+            {
+                print("dezqss");
+                t_CanShootTimer.ResetPlay();
+            }
             return;
+        }
+            
 
         foreach (var collider in hit)
         {
@@ -36,6 +62,12 @@ public class ShootLogics : MonoBehaviour
                 Shoot(food);
             }
         }
+        if (!t_CanShootTimer.IsStarted())
+        {
+            print("dezqss");
+            t_CanShootTimer.ResetPlay();
+        }
+            
     }
 
     public void Shoot(Food_Behaviours food)
@@ -43,6 +75,17 @@ public class ShootLogics : MonoBehaviour
         print(food.name + " name");
         //food.MoveToTheGourmet(GourmetBehaviours.instance.transform.position);
         food.Shoot(transform.parent.position,m_ShootForce);
+    }
+
+
+    private void DisableShoot()
+    {
+        m_CanShoot = false;
+    }
+
+    private void EnableShoot()
+    {
+        m_CanShoot = true;
     }
 
     #region Gizmo

@@ -622,6 +622,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1183749887, guid: 365a073cd6ddd8945a99aa4cc0020d90, type: 3}
+      propertyPath: m_ShootInput
+      value: 98
+      objectReference: {fileID: 0}
+    - target: {fileID: 1183749887, guid: 365a073cd6ddd8945a99aa4cc0020d90, type: 3}
+      propertyPath: m_ReloadShootTime
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8498194440826475650, guid: 365a073cd6ddd8945a99aa4cc0020d90, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -679,6 +687,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1599036350, guid: 0bd83ddb654a9ce4ea5fb8bbc06d458e, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8769791072278860966, guid: 0bd83ddb654a9ce4ea5fb8bbc06d458e, type: 3}
       propertyPath: m_RootOrder
       value: 5
